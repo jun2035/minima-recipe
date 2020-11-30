@@ -1,0 +1,9 @@
+<%= @recipe.cooking_name %>
+<%= @recipe.genre.name %>
+<%= image_tag @recipe.image ,class:"" %>
+  <% if user_signed_in? && current_user.id == @recipe.user_id %>
+    <%= link_to '編集', edit_recipe_path(@recipe.id), method: :get, class: "recipe-red-btn" %>
+     <p class='or-text'>or</p>
+    <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class:'recipe-destroy' %>
+  <% end %>
+<%= @recipe.how_to_cook %>

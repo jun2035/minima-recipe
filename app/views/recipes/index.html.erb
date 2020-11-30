@@ -1,0 +1,12 @@
+<div class="contents row">
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe_path(recipe.id) do %>
+      <div class="content_post" style="background-image">
+        <%= image_tag recipe.image.variant(resize: '500x500') if recipe.image.attached? %>
+        <p><%= recipe.how_to_cook %></p>
+        <span class="name"><%= recipe.cooking_name %></span>
+      </div>
+    
+    <% end %>
+  <% end %>
+</div>

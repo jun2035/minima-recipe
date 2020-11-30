@@ -1,0 +1,24 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @recipe, local: true) do |f| %>
+
+    <%#= render 'shared/error_messages', model: f.object %>
+    
+      <%= f.text_field :cooking_name, placeholder: "料理名" %>
+      <%= f.text_area :how_to_cook, placeholder: "料理の作り方を記載してください", rows: "10" %>
+      
+      <div class="weight-bold-text">
+          料理のジャンル
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+      
+      <label class="form-image">
+        <span class="image-file">料理の画像</span>
+        <%= f.file_field :image, class: 'hidden' %>
+      </label>
+      <%= f.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
