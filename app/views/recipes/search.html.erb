@@ -5,8 +5,6 @@
 
 <div class="contents row">
   <% @recipes.each do |recipe| %>
-    <%= link_to recipe_path(recipe.id) do %>
-      <%= render partial: "shared/recipe", locals: { recipe: recipe } %>
-    <% end %>
+    <%= render partial: "shared/recipe", locals: { recipe: recipe } %>
   <% end %>
 </div>

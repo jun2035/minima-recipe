@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, except: [:index, :new, :create]
+  before_action :set_recipe, except: [:index, :new, :create, :search]
   before_action :authenticate_user!, except: [:index, :show, :destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @recipes = Recipe.all.order("created_at DESC")
@@ -40,6 +40,10 @@ class RecipesController < ApplicationController
     else
       render :show
     end
+  end
+
+  def search
+    @recipes = Recipe.search(params[:keyword]).order("created_at DESC")
   end
 
   private
