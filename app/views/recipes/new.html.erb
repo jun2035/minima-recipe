@@ -6,6 +6,14 @@
     <%#= render 'shared/error_messages', model: f.object %>
     
       <%= f.text_field :cooking_name, placeholder: "料理名" %>
+      
+      <div class="field">
+        <%= f.label :foods %><br />
+        <%= collection_check_boxes(:recipe, :food_ids, Food.all, :id, :name) do |b| %>
+        <%= b.label { b.check_box + b.text } %>
+        <% end %>
+      </div>
+
       <%= f.text_area :how_to_cook, placeholder: "料理の作り方を記載してください", rows: "10" %>
       
       <div class="weight-bold-text">

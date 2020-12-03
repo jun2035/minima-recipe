@@ -53,7 +53,7 @@ class RecipesController < ApplicationController
   end
   
   def recipe_params
-    params.require(:recipe).permit(:image, :cooking_name, :how_to_cook, :genre_id).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:image, :cooking_name, :how_to_cook, :genre_id, food_ids:[]).merge(user_id: current_user.id)
   end
 
   def move_to_index

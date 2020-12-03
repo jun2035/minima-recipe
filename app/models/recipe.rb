@@ -4,8 +4,8 @@ class Recipe < ApplicationRecord
   belongs_to :genre
   has_one_attached :image
   belongs_to :user
-  # has_many :recipes_foods
-  # has_many :foods, through: :recipes_foods
+  has_many :recipes_foods
+  has_many :foods, through: :recipes_foods
   # has_many :favorites
   # has_many :comments
 
@@ -19,7 +19,8 @@ class Recipe < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Recipe.where('cooking_name LIKE(?)', "%#{search}%")
+      # Recipe.where('cooking_name LIKE(?)', "%#{search}%")
+      Recipe.joins(recipes_foods: :food).where('name LIKE(?)', "%#{search}%")
     else
       Recipe.all
     end
