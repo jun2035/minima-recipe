@@ -17,13 +17,13 @@ class Recipe < ApplicationRecord
 
   validates :genre_id, numericality: { other_than: 0 } 
 
-  def self.search(search)
-    if search != ""
-      # Recipe.where('cooking_name LIKE(?)', "%#{search}%")
-      Recipe.joins(recipes_foods: :food).where('name LIKE(?)', "%#{search}%")
-    else
-      Recipe.all
-    end
-  end
+  # def self.search(search)
+  #   if search != ""
+  #     Recipe.where('cooking_name LIKE(?)', "%#{search}%")
+  #     Recipe.joins(recipes_foods: :food).where('name LIKE(?)', "%#{search}%")
+  #   else
+  #     Recipe.all
+  #   end
+  # end
 
 end

@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  get 'recipes/search'
   resources :users, only: [:show, :edit, :update]
 end

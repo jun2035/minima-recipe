@@ -5,38 +5,89 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
   
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      body {
+        padding-top: 56px;
+        background-image: url('https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_960_720.jpg');
+        background-size: cover;
+        height: 100vh;
+      }
+
+      .btn {
+　       margin: 5px;
+      }
+      
+    </style>
   </head>
 
   <body>
-    <header class="header">
-        <div class="header__bar row">
-          <h1 class="grid-6"><a href="/">Minima-Recipe</a></h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <%= image_tag 'logo.png', size:'180x30', alt:"Minima-Recipe" %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
           <% if user_signed_in? %>
-            <div class="user_nav grid-6">
-              <span><%= current_user.nickname %>
-                <ul class="user__info">
-                  <li>
-                    <%= link_to "マイページ", "/users/#{current_user.id}" %>
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                  </li>
-                </ul>
-              </span>
-              <%= link_to "投稿する", new_recipe_path, class: "post" %>
-            </div>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <button type="button" class="btn btn-info">
+                  <%= link_to "レシピを投稿", new_recipe_path, class: "post", style:"color:white;" %>
+                </button>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= "#{current_user.nickname} さん" %>
+                </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-item">
+                  <%= link_to "マイページ", "/users/#{current_user.id}", style:"color:#343a40;" %>
+                </div>
+                <div class="dropdown-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, style:"color:#343a40;" %>
+                </div>
+              </div>
+              </li>
+            </ul>
           <% else %>
-            <div class="grid-6">
-              <%= link_to "ログイン", new_user_session_path, class: "post" %>
-              <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-            </div>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <div class="nav-link">
+                  <%= link_to "会員登録(無料)", new_user_registration_path, class: "post" %>
+                </div>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn btn-success ml-2" >
+                  <%= link_to "ログイン", new_user_session_path, class: "post", style:"color:white;" %>
+                </button>
+              </li>
+            </ul>
           <% end %>
-    </header>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
-    <footer>
-      <p>
-        Copyright Minima-Recipe 2020.
-      </p>
+    
+    <!-- Footer -->
+    <footer class="py-4 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Minima-Recipe 2020</p>
+      </div>
     </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
   </body>
 </html>

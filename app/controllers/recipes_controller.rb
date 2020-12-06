@@ -1,10 +1,15 @@
 class RecipesController < ApplicationController
+  # before_action :search_food, only: [:index, :search]
   before_action :set_recipe, except: [:index, :new, :create, :search]
   before_action :authenticate_user!, except: [:index, :show, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @recipes = Recipe.all.order("created_at DESC")
+    # @recipes = Recipe.all.order("created_at DESC")
+    @foods = Food.all.order("category DESC")
+
+    @search = Recipe.ransack(params[:q])
+    @recipes = @search.result.includes(:foods).distinct
   end
 
   def new
@@ -42,10 +47,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  def search
-    @recipes = Recipe.search(params[:keyword]).order("created_at DESC")
-  end
-
   private
 
   def set_recipe
@@ -60,6 +61,10 @@ class RecipesController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
 end

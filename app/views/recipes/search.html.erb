@@ -1,7 +1,27 @@
-<%= render  "shared/search" %>
+<%#= @results.recipes %>
 
-<div class="contents row">
-  <% @recipes.each do |recipe| %>
-    <%= render partial: "shared/recipe", locals: { recipe: recipe } %>
+<% @results.each do |result| %>
+  
+      <%= result.cooking_name %>
+   
   <% end %>
-</div>
+  
+  <%# @recipes.each do |recipe| %>
+  <%#= recipe.cooking_name %>
+  <%#= recipe.foods.name %>
+  <%# end %>
+
+
+
+<%# @results.each do |result| %>
+  <%#= result %>
+<%# end %>
+
+
+<%#= render  "shared/search" %>
+
+<%# <div class="contents row"> %>
+  <%# @recipes.each do |recipe| %>
+    <%#= render partial: "shared/recipe", locals: { recipe: recipe } %>
+  <%# end %>
+<%# </div> %>
