@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <div class="border rounded-lg px-3 my-3 shadow" style="background-color: rgba(255, 255, 255, 0.8)">
+        <div class="border rounded-lg px-2 my-3 shadow" style="background-color: rgba(255, 255, 255, 0.8)">
           <h2 class="my-2 text-center">材料検索</h2>
           <%= search_form_for @search, url: recipes_path do |f| %>
             <%# 麺類 %>
@@ -136,7 +136,7 @@
             <div class="col-lg-4 col-md-6 mb-4 ">
               <div class="card h-100">
                 <%= link_to recipe_path(recipe.id) do %>
-                  <%= image_tag recipe.image, class:"card-img-top" %>
+                  <%= image_tag recipe.image, class:"card-img-top embed-responsive embed-responsive-16by9" %>
                 <% end %>
                 <div class="card-body">
                   <h4 class="card-title">
@@ -145,16 +145,24 @@
                   <h6 class="card-subtitle mb-2 text-muted">
                     <%= recipe.genre.name %>
                   </h6>
+                  <div class="card-text">
+                    <div class="badge badge-danger">
+                      必須材料
+                    </div>
+                      <% recipe.foods.ids.each do |i| %>
+                        <% @food = Food.find(i) %>
+                        <small class="text-muted"><%= @food.name%></small>
+                      <% end %>
+                  </div>
                 </div>
-
-                <div class="card-footer">
+                <div class="card-footer">                  
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;  4.12(134件)</small>
                 </div>
               </div>
             </div>
           <% end %>
-          <%#= render partial: "shared/recipe", locals: { recipe: recipe } %>
         </div>
+
         <!-- /.row -->
       </div>
       <!-- /.col-lg-9 -->

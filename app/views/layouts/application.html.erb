@@ -1,27 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Minima-Recipe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
   
-    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <style>
-      body {
-        padding-top: 56px;
-        background-image: url('https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_960_720.jpg');
-        background-size: cover;
-        height: 100vh;
-      }
-
-      .btn {
-　       margin: 5px;
-      }
-      
-    </style>
   </head>
 
   <body>
@@ -77,7 +66,7 @@
     <%= yield %>
     
     <!-- Footer -->
-    <footer class="py-4 bg-dark">
+    <footer class="footer py-4 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Minima-Recipe 2020</p>
       </div>

@@ -1,32 +1,70 @@
-<div class="contents row">
-  <div class="container">
-    <h3>投稿する</h3>
-    <%= form_with(model: @recipe, local: true) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
 
-    <%#= render 'shared/error_messages', model: f.object %>
-    
-      <%= f.text_field :cooking_name, placeholder: "料理名" %>
-      
-      <div class="field">
-        <%= f.label :foods %><br />
-        <%= collection_check_boxes(:recipe, :food_ids, Food.all, :id, :name) do |b| %>
-        <%= b.label { b.check_box + b.text } %>
+      <div class="border rounded-lg px-3 my-3 shadow" style="background-color: rgba(255, 255, 255, 0.8)">
+        <h2 class="my-2 text-center">レシピを投稿する</h2>
+        
+        <%#= render 'shared/error_messages', model: f.object %>
+
+        <%= form_with(model: @recipe, local: true) do |f| %>
+          <!--料理名-->
+          <div class="form-row mb-2">
+            <div class="col">
+              <%= f.label :cooking_name, "料理名" %>
+              <%= f.text_field :cooking_name, class:"form-control", placeholder: "料理名を入力", required:true %>
+              <div class="invalid-feedback">入力してください</div>
+            </div>
+          </div>          
+          <!--/料理名-->
+
+          <!--料理ジャンル-->
+          <div class="form-row mb-2">
+            <div class="col">
+            <%= f.label :genre_id, "ジャンル" %>
+            <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"custom-select"}) %>
+            </div>
+          </div>  
+          <!--/料理ジャンル-->
+
+          <!--ファイル選択-->
+          <div class="form-row mb-2">
+            <div class="col">
+              <div>写真</div>
+              <div class="custom-file mb-3">
+                <%= f.label :image, "料理の写真を選択", class:"custom-file-label pb-3" %>
+                <%= f.file_field :image, class: "custom-file-input pb-3" %>
+                <div class="invalid-feedback">ファイルを選択してください</div>
+              </div>
+          <!--/ファイル選択-->
+
+          <!--材料選択-->
+          <div class="form-row mb-2">
+            <div class="form-group col">
+              <%= f.label :food_ids, "材料" %></br>
+              <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
+                <%= b.label { b.check_box + b.text } %>
+              <% end %>
+            </div>
+          </div>
+          <!--/材料選択-->
+          
+          <!--料理の作り方--> 
+          <div class="form-group pb-3">
+            <%= f.label :how_to_cook, "作り方" %>
+            <%= f.text_area :how_to_cook, placeholder: "料理の作り方を入力してください", rows: "10", class:"form-control", required:true %>
+          </div>
+          <!--/料理の作り方-->
+          
+          <!--登録ボタン-->
+          <div class="form-group row">
+            <div class="col-12">
+              <%= f.submit "登録", class:"btn btn-primary btn-block" %>
+            </div>
+          </div>
+          <!--/登録ボタン-->
         <% end %>
       </div>
-
-      <%= f.text_area :how_to_cook, placeholder: "料理の作り方を記載してください", rows: "10" %>
-      
-      <div class="weight-bold-text">
-          料理のジャンル
-          <span class="indispensable">必須</span>
-      </div>
-      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
-      
-      <label class="form-image">
-        <span class="image-file">料理の画像</span>
-        <%= f.file_field :image, class: 'hidden' %>
-      </label>
-      <%= f.submit "SEND" %>
-    <% end %>
+    </div>
   </div>
 </div>
