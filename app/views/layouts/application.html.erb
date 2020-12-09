@@ -28,12 +28,13 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
                 <button type="button" class="btn btn-info">
-                  <%= link_to "レシピを投稿", new_recipe_path, class: "post", style:"color:white;" %>
+                  <%= link_to "レシピを投稿", new_recipe_path, class:"post", style:"color:white;" %>
                 </button>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= "#{current_user.nickname} さん" %>
+                  <%= current_user.nickname %><small class="text-muted"> さん</small>
+                  <small>
                 </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <div class="dropdown-item">
@@ -49,12 +50,12 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <div class="nav-link">
-                  <%= link_to "会員登録(無料)", new_user_registration_path, class: "post" %>
+                  <%= link_to "会員登録(無料)", new_user_registration_path, class:"post" %>
                 </div>
               </li>
               <li class="nav-item">
                 <button type="button" class="btn btn-success ml-2" >
-                  <%= link_to "ログイン", new_user_session_path, class: "post", style:"color:white;" %>
+                  <%= link_to "ログイン", new_user_session_path, class:"post", style:"color:white;" %>
                 </button>
               </li>
             </ul>

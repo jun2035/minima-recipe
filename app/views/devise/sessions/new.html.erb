@@ -1,33 +1,31 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>Log in</h2>
-      <h5>登録しているユーザーでログイン</h5>
-      <%= render "devise/shared/links"%>
+<div class="card col-sm-5 mx-auto my-5">
+  <div class="card-body">
+    <h3 class="mt-1 mb-3">ログイン</h3>
+    <%= form_with model: @user, url: session_path(resource_name), local: true do |f|%>
+
+    <div class="form-group">
+      <%= f.label :email, "メールアドレス", class:"form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
     </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email, autofocus: true %>
-          </div>
-          <div class='field'>
-            <div class='field-label'>
-              <%= f.label :password%>
-              <i>(英数字6文字以上)</i>
-            </div>
-            <div class='field-input'>
-              <%= f.password_field :password, autocomplete: "off"%>
-            </div>
-          </div>
-          <div class='actions'>
-            <%= f.submit "Log in", class: 'btn'%>
-          </div>
-        </div>
-      <% end %>
+
+    <div class="form-group">
+      <%= f.label :password, "パスワード", class:"form-label" %>
+      <%#= link_to "パスワードを忘れた場合", new_user_password_path, class:"float-right" %>
+      <%= f.password_field :password, class:"form-control" %>
+    <% if devise_mapping.rememberable? %>
+    <div class="form-check">
+      <%= f.check_box :remember_me, class:"form-check-input" %>
+      <%= f.label :remember_me, "ログインを記憶", class:"form-check-label" %>
     </div>
+    <% end %>
+    </div>
+ 
+    <div class="actions">
+      <%= f.submit "ログイン", class:"btn btn-primary btn-block" %>
+    </div>
+    <% end %>
+ 
+    <div class="small text-muted text-center mt-4">新しいユーザですか?</div>
+    <%= link_to "アカウントを作成", new_user_registration_path, class:"btn btn-light btn-block border mt-1" %>
   </div>
 </div>

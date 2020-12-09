@@ -16,6 +16,8 @@ class Recipe < ApplicationRecord
   end
 
   validates :genre_id, numericality: { other_than: 0 } 
+  validates_acceptance_of  :recipes_foods, :food_id, length: { minimum: 2, message: 'を1つ以上選択してください' }
+
 
   # def self.search(search)
   #   if search != ""

@@ -1,0 +1,95 @@
+<mxfile host="65bd71144e" modified="2020-12-09T13:28:44.242Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" version="13.6.5" etag="V7HN-eif4HjNWVoGD7k4">
+    <diagram id="tW1TTK3NK64K5YK8vKk_" name="ページ1">
+        <mxGraphModel dx="534" dy="382" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="279.83049504950486" y="180" as="sourcePoint"/>
+                        <mxPoint x="279.48316831683167" y="133.44827586206895" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="280" y="157"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="トップ画面" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="230.34732673267325" y="180" width="137.93267326732672" height="103.44827586206897" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="・pick upレシピ&#10;・レシピ一覧&#10;・検索フォーム&#10;・お気に入り登録" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="137.93267326732672" height="73.44827586206897" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="64.48249999999996" y="300" as="sourcePoint"/>
+                        <mxPoint x="64.48249999999996" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="アカウント登録" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="180" width="137.93" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="・ニックネーム&#10;・メールアドレス&#10;・パスワード&#10;・性別&#10;・生年月日" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="4">
+                    <mxGeometry y="30" width="137.93" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="レシピ詳細" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="449" y="180" width="137.93" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="・レシピ情報&#10;・コメント投稿&#10;・お気に入り登録&#10;&#10;※投稿ユーザーのみ&#10;・レシピ編集ボタン&#10;・レシピ削除ボタン" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="11">
+                    <mxGeometry y="30" width="137.93" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="レシピ登録" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="639" y="180" width="161" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="・料理名&#10;・料理写真&#10;・必須食材2つ（選択必須）&#10;・作り方&#10;・作り方動画" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="13">
+                    <mxGeometry y="30" width="161" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="マイページ" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="230" y="30" width="137.93267326732672" height="103.44827586206897" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="・アカウント情報&#10;・投稿履歴&#10;（料理名）" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="9">
+                    <mxGeometry y="30" width="137.93267326732672" height="73.44827586206897" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="アカウント編集" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="60.08" width="137.93" height="43.28" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="103.44749999999999" y="360" as="sourcePoint"/>
+                        <mxPoint x="103.44749999999999" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="ユーザーログイン" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="360" width="137.93" height="43.45" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="お気に入り一覧" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="30" width="137.93267326732672" height="103.44827586206897" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="・レシピ一覧&#10;・検索フォーム" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="17">
+                    <mxGeometry y="30" width="137.93267326732672" height="73.44827586206897" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="レシピ編集" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="330" width="137.93" height="43.28" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="レシピ削除" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="360.17" width="137.93" height="43.28" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.996;entryY=0.206;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.999;exitY=0.53;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="5" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="304.449504950495" y="133.448275862069" as="sourcePoint"/>
+                        <mxPoint x="304.7968316831683" y="180" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="304" y="157"/>
+                            <mxPoint x="305" y="157"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

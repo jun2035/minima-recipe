@@ -12,8 +12,8 @@
             <% @foods.each do |food| %>
               <% if food.category == "麺類" %>
                 <div class="form-check form-check-inline">
-                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class: 'form-check-input' %>
-                  <%= label_tag "food_#{food.id}", food.name, class: 'form-check-label' %>
+                  <%= check_box_tag :'q[recipes_foods_food_names_in][]', food.name, false, id:"food_#{food.id}", class:'form-check-input' %>
+                  <%= label_tag "food_#{food.id}", food.name, class:'form-check-label' %>
                 </div>
               <% end%>
             <% end %>
@@ -25,8 +25,8 @@
             <% @foods.each do |food| %>
               <% if food.category == "野菜" %>
                 <div class="form-check form-check-inline">
-                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class: 'form-check-input' %>
-                  <%= label_tag "food_#{food.id}", food.name, class: 'form-check-label' %>
+                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class:'form-check-input' %>
+                  <%= label_tag "food_#{food.id}", food.name, class:'form-check-label' %>
                 </div>
               <% end%>
             <% end %>
@@ -38,8 +38,8 @@
             <% @foods.each do |food| %>
               <% if food.category == "水産物" %>
                 <div class="form-check form-check-inline">
-                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class: 'form-check-input' %>
-                  <%= label_tag "food_#{food.id}", food.name, class: 'form-check-label' %>
+                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class:'form-check-input' %>
+                  <%= label_tag "food_#{food.id}", food.name, class:'form-check-label' %>
                 </div>
               <% end%>
             <% end %>
@@ -51,8 +51,8 @@
             <% @foods.each do |food| %>
               <% if food.category == "肉" %>
                 <div class="form-check form-check-inline">
-                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class: 'form-check-input' %>
-                  <%= label_tag "food_#{food.id}", food.name, class: 'form-check-label' %>
+                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class:'form-check-input' %>
+                  <%= label_tag "food_#{food.id}", food.name, class:'form-check-label' %>
                 </div>
               <% end%>
             <% end %>
@@ -64,21 +64,8 @@
             <% @foods.each do |food| %>
               <% if food.category == "卵・チーズ・乳製品" %>
                 <div class="form-check form-check-inline">
-                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class: 'form-check-input' %>
-                  <%= label_tag "food_#{food.id}", food.name, class: 'form-check-label' %>
-                </div>
-              <% end%>
-            <% end %>
-
-            <%# 果物 %>
-            <div class="progress mt-3">
-              <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">果物</div>
-            </div>
-            <% @foods.each do |food| %>
-              <% if food.category == "果物" %>
-                <div class="form-check form-check-inline">
-                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class: 'form-check-input' %>
-                  <%= label_tag "food_#{food.id}", food.name, class: 'form-check-label' %>
+                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class:'form-check-input' %>
+                  <%= label_tag "food_#{food.id}", food.name, class:'form-check-label' %>
                 </div>
               <% end%>
             <% end %>
@@ -90,8 +77,21 @@
             <% @foods.each do |food| %>
               <% if food.category == "豆腐・納豆・漬物" %>
                 <div class="form-check form-check-inline">
-                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class: 'form-check-input' %>
-                  <%= label_tag "food_#{food.id}", food.name, class: 'form-check-label' %>
+                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class:'form-check-input' %>
+                  <%= label_tag "food_#{food.id}", food.name, class:'form-check-label' %>
+                </div>
+              <% end%>
+            <% end %>
+            
+            <%# 果物 %>
+            <div class="progress mt-3">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">果物</div>
+            </div>
+            <% @foods.each do |food| %>
+              <% if food.category == "果物" %>
+                <div class="form-check form-check-inline">
+                  <%= check_box_tag :'q[recipes_foods_food_name_in][]', food.name, false, id:"food_#{food.id}", class:'form-check-input' %>
+                  <%= label_tag "food_#{food.id}", food.name, class:'form-check-label' %>
                 </div>
               <% end%>
             <% end %>
@@ -147,7 +147,7 @@
                   </h6>
                   <div class="card-text">
                     <div class="badge badge-danger">
-                      必須材料
+                      材料
                     </div>
                       <% recipe.foods.ids.each do |i| %>
                         <% @food = Food.find(i) %>

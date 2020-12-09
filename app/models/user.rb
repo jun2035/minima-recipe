@@ -15,6 +15,6 @@ class User < ApplicationRecord
     validates :birthday
   end
   
-  validates :gender_id, numericality: { other_than: 0 } 
+  # validates :gender_id, numericality: { other_than: 0 } 
 
 end
