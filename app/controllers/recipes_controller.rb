@@ -4,14 +4,14 @@ class RecipesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    # @recipes = Recipe.all.order("created_at DESC")
-    @foods = Food.all.order("category DESC")
+    @foods = Food.all.order("category DESC").group_by { |f| f.category }
     @search = Recipe.ransack(params[:q])
     @recipes = @search.result.includes(:foods).distinct
+    @recipes = Recipe.search(@recipes, params[:foods])
   end
 
   def new
-    @foods = Food.all.order("category DESC")
+    @foods = Food.all.order("category DESC").group_by { |f| f.category }
     @recipe = Recipe.new
   end
 

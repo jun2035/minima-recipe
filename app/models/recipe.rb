@@ -16,8 +16,7 @@ class Recipe < ApplicationRecord
   end
 
   validates :genre_id, numericality: { other_than: 0 } 
-  validates_acceptance_of  :recipes_foods, :food_id, length: { minimum: 2, message: 'を1つ以上選択してください' }
-
+  validate :valid_search_count
 
   # def self.search(search)
   #   if search != ""
@@ -27,5 +26,21 @@ class Recipe < ApplicationRecord
   #     Recipe.all
   #   end
   # end
+
+  def self.search(recipes, foods)
+    return recipes if foods.blank?
+
+    food_ids = Food.where(name: foods).pluck(:id)
+
+    recipes.select do |r|
+      (r.recipes_foods.pluck(:food_id) & food_ids).size >= 2
+    end
+  end
+
+  def valid_search_count
+    if recipes_foods.size != 2
+      errors.add(:base, '食材は2個選択してください。')
+    end
+  end
 
 end

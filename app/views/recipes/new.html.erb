@@ -7,7 +7,7 @@
         
         <%= form_with(model: @recipe, local: true) do |f| %>
 
-        <%= render 'shared/error_messages', model: f.object %>
+          <%= render 'shared/error_messages', model: f.object %>
           <!--料理名-->
           <div class="form-row mb-2">
             <div class="col">
@@ -36,12 +36,14 @@
                 <%= f.file_field :image, class:"custom-file-input pb-3" %>
                 <div class="invalid-feedback">ファイルを選択してください</div>
               </div>
+            </div>
+          </div>    
           <!--/ファイル選択-->
 
           <!--材料選択-->
           <div class="form-row mb-2">
             <div class="form-group col">
-              <%= f.label :food_ids, "材料" %></br>
+              <%= f.label :food_ids, "材料" %><br>
               <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
                 <%= b.label { b.check_box + b.text } %>
               <% end %>
