@@ -10,7 +10,7 @@ Minima-Recipe
 
 # URL
 
-※デプロイ完了後に入力予定 
+https://minima-recipe.herokuapp.com/
   
 # テスト用アカウント
 
@@ -158,11 +158,14 @@ Minima-Recipeは、普段の料理はシンプルで良いという人に向け�
 - belongs_to :recipe
 
 # ローカルでの動作方法
+```
 git clone git@github.com:jun2035/minima-recipe.git  
 bundle install  
 rails db:create  
 rails db:migrate  
+rails db:seed  
+```
 
-## 開発環境 
+### 開発環境 
 - ruby 2.6.5 
 - Rails 6.0.3
