@@ -59,7 +59,7 @@
           <div class="col-lg-4 col-md-6 mb-4 ">
             <div class="card h-100">
               <%= link_to recipe_path(recipe.id) do %>
-                <%= image_tag recipe.image, class:"card-img-top embed-responsive embed-responsive-16by9" %>
+                <%= image_tag rails_blob_path(recipe.image), class:"card-img-top embed-responsive embed-responsive-16by9" %>
               <% end %>
               <div class="card-body">
                 <h4 class="card-title">
