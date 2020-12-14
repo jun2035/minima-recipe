@@ -127,6 +127,6 @@ user3 = User.create(nickname:'テストユーザー3', email:'q3q3q3@q3.com', pa
 recipe = Recipe.new(cooking_name: 'ハンバーグ', how_to_cook: '作り方', genre_id: 2, user_id:user1.id)
 recipe.recipes_foods.new(food_id: Food.find_by(name: '牛ひき肉').id)
 recipe.recipes_foods.new(food_id: Food.find_by(name: 'たまねぎ').id)
-file_path = Pathname.new(Rails.root.join("app/assets/images/logo.png"))
-recipe.image.attach(io: File.open(file_path), filename: 'recipe.png', content_type: 'image/png')
+file_path = Pathname.new(Rails.root.join("app/assets/images/recipes/ハンバーグ.jpeg"))
+recipe.image.attach(io: File.open(file_path), filename: 'recipe.jpeg', content_type: 'image/jpeg')
 recipe.save
