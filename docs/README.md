@@ -158,10 +158,10 @@ Minima-Recipeでは、毎日料理を頑張る人へ向けた、今家にある�
 - belongs_to :recipe
 
 # ローカルでの動作方法
-git clone git@github.com:jun2035/minima-recipe.git
-bundle install
-rails db:create
-rails db:migrate
+git clone git@github.com:jun2035/minima-recipe.git  
+bundle install  
+rails db:create  
+rails db:migrate  
 
 ## 開発環境 
 - ruby 2.6.5 
