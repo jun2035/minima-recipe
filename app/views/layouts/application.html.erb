@@ -38,7 +38,8 @@
                 </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <div class="dropdown-item">
-                  <%= link_to "マイページ", "/users/#{current_user.id}", style:"color:#343a40;" %>
+                  <%= link_to "マイページ", "/", style:"color:#343a40;" %>
+                  <%#= link_to "マイページ", "/users/#{current_user.id}", style:"color:#343a40;" %>
                 </div>
                 <div class="dropdown-item">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, style:"color:#343a40;" %>

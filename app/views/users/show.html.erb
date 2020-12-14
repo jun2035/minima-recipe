@@ -6,13 +6,10 @@
       <button type="button" class="btn btn-info">
         <%= link_to "アカウント編集", edit_user_path, class:"get", style:"color:white;" %>
       </button>
-    </div>
+      </div>
       <div class="card border-light mb-3">
         <p>お気に入り一覧</p>
       </div>
-    <div class="col-6">
-    </div>
-
 
   </div>
 
@@ -24,9 +21,7 @@
    <div class="card border-light mb-3">
     <p>投稿一覧</p>
     <% @recipes.each do |recipe| %>
-      <p><%= recipe.cooking_name %></p>
-      <span class="name">投稿日時：<%= recipe.created_at %></span>
-      <span class="name"><%= recipe.updated_at %></span>
+      <span class="name">投稿日時：<%= recipe.created_at %><p><%= recipe.cooking_name %></p></span>
   <% end %>
   </div>
    </div>
