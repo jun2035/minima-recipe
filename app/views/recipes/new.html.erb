@@ -44,16 +44,11 @@
           <div class="form-row mb-2">
             <div class="form-group col">
               <%= f.label :food_ids, "材料" %><br />
-              <%#= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
-                <%#= b.label { b.check_box + b.text } %>
-              <%# end %>
-              <% Food.all.each do |food| %>
-                <%= food.name %>
-                <%= f.check_box :food_ids[], {}, true, false %>
+              <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
+                <%= b.label { b.check_box + b.text } %>
               <% end %>
             </div>
           </div>
-          
           <!--/材料選択-->
           
           <!--料理の作り方--> 
