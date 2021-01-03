@@ -4,7 +4,6 @@ RSpec.describe Recipe, type: :model do
   before do
     user = FactoryBot.create(:user)
     @recipe = FactoryBot.build(:recipe, user_id: user.id)
-    binding.pry
   end
 
   describe 'レシピ新規登録' do
@@ -36,12 +35,7 @@ RSpec.describe Recipe, type: :model do
         expect(@recipe.errors.full_messages).to include('Genre Select')
       end
       it 'food_idが未選択では、登録できない' do
-        # @recipe.food_ids = nil
-        # @recipe.recipes_foods.food_ids = nil
-        # @recipe.recipes_foods[0].food_id = nil
-        # @recipe.recipes_foods[1].food_id = nil
         @recipe.recipes_foods.delete_all
-        # binding.pry
         @recipe.valid?
         expect(@recipe.errors.full_messages).to include('食材は2個選択してください。')
       end

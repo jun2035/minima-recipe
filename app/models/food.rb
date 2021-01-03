@@ -3,6 +3,7 @@ class Food < ApplicationRecord
   has_many :recipes, through: :recipes_foods
 end
 
+# FoodモデルをActiveHash化する場合の記述
 # class Food < ActiveHash::Base
 #   self.data = [
 
