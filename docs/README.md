@@ -108,7 +108,7 @@ Minima-Recipeは、普段の料理はシンプルで良いという人に向け�
 - has_many :foods, through: :recipes_foods
 
 
-## foodsテーブル
+## foodsテーブル（ActiveHash）
 
 | Column      | Type    | Options     |
 | ----------- | ------- | ----------- |
@@ -122,10 +122,10 @@ Minima-Recipeは、普段の料理はシンプルで良いという人に向け�
 
 ## recipes_foods テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| recipe | references | null: false, foreign_key: true |
-| food   | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| recipe  | references | null: false, foreign_key: true |
+| food_id | integer    | null: false                    |
 
 ### Association
 

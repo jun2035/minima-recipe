@@ -33,13 +33,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_030447) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "cooking_name", null: false
     t.text "how_to_cook", null: false
@@ -52,10 +45,9 @@ ActiveRecord::Schema.define(version: 2020_12_01_030447) do
 
   create_table "recipes_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "recipe_id", null: false
-    t.bigint "food_id", null: false
+    t.integer "food_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["food_id"], name: "index_recipes_foods_on_food_id"
     t.index ["recipe_id"], name: "index_recipes_foods_on_recipe_id"
   end
 
@@ -76,6 +68,5 @@ ActiveRecord::Schema.define(version: 2020_12_01_030447) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "recipes", "users"
-  add_foreign_key "recipes_foods", "foods"
   add_foreign_key "recipes_foods", "recipes"
 end
