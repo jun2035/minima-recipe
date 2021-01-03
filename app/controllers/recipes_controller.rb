@@ -2,16 +2,15 @@ class RecipesController < ApplicationController
   before_action :set_recipe, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show, :destroy]
   before_action :move_to_index, except: [:index, :show]
+  before_action :read_food
 
   def index
-    @foods = Food.all.order("category DESC").group_by { |f| f.category }
     @search = Recipe.ransack(params[:q])
     @recipes = @search.result.includes(:foods).distinct
     @recipes = Recipe.search(@recipes, params[:foods])
   end
 
   def new
-    @foods = Food.all.order("category DESC").group_by { |f| f.category }
     @recipe = Recipe.new
   end
 
@@ -26,7 +25,7 @@ class RecipesController < ApplicationController
 
   def show
   end
-  
+
   def edit
   end
 
@@ -46,13 +45,17 @@ class RecipesController < ApplicationController
     end
   end
 
+  def read_food
+    @foods = Food.all.order("category DESC").group_by { |f| f.category }
+  end
+
   private
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
     @recipesfoods = RecipesFood.where(recipe_id: params[:id])
   end
-  
+
   def recipe_params
     params.require(:recipe).permit(:image, :cooking_name, :how_to_cook, :genre_id, food_ids:[]).merge(user_id: current_user.id)
   end
