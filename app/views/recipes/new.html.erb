@@ -4,7 +4,7 @@
 
       <div class="border rounded-lg px-3 my-3 shadow" style="background-color: rgba(255, 255, 255, 0.8)">
         <h2 class="my-2 text-center">レシピを投稿する</h2>
-        
+
         <%= form_with(model: @recipe, local: true) do |f| %>
 
           <%= render 'shared/error_messages', model: f.object %>
@@ -43,21 +43,30 @@
           <!--材料選択-->
           <div class="form-row mb-2">
             <div class="form-group col">
-              <%= f.label :food_ids, "材料" %><br />
-              <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
-                <%= b.label { b.check_box + b.text } %>
+
+            <% @foods.keys.each do |category| %>
+              <div class="progress mt-3">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><%= category %></div>
+              </div>
+
+              <% @foods[category].each do |food| %>
+                <div class="form-check form-check-inline">
+                  <%= f.check_box(:food_ids, { :multiple => true, include_hidden: false }, food.id.to_i) %>
+                  <%= food.name %>
+                </div>
               <% end %>
+            <% end %>
             </div>
           </div>
           <!--/材料選択-->
-          
+
           <!--料理の作り方--> 
           <div class="form-group pb-3">
             <%= f.label :how_to_cook, "作り方" %>
             <%= f.text_area :how_to_cook, placeholder: "料理の作り方を入力してください", rows: "10", class:"form-control", required:true %>
           </div>
           <!--/料理の作り方-->
-          
+
           <!--登録ボタン-->
           <div class="form-group row">
             <div class="col-12">
