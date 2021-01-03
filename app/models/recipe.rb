@@ -6,8 +6,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipes_foods, dependent: :destroy
   has_many :foods, through: :recipes_foods
-  # has_many :favorites
-  # has_many :comments
+  # has_many :favorites   #追加実装予定
+  # has_many :comments    #追加実装予定
 
   with_options presence: true do
     validates :image
@@ -15,7 +15,7 @@ class Recipe < ApplicationRecord
     validates :how_to_cook
   end
 
-  validates :genre_id, numericality: { other_than: 0 } 
+  validates :genre_id, numericality: { other_than: 0, message: 'Select' } 
   validate :valid_search_count
 
   # def self.search(search)

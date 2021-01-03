@@ -7,8 +7,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
   has_many :recipes
-  # has_many :favorites
-  # has_many :comments
+  # has_many :favorites   #追加実装予定
+  # has_many :comments    #追加実装予定
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
