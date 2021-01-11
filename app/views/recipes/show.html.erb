@@ -14,7 +14,7 @@
         <% if user_signed_in? && current_user.id == @recipe.user_id %>
           <div class="btn-group mt-1" role="group" aria-label="Basic example">
             <%= link_to '編集', edit_recipe_path(@recipe.id), method: :get, class:"btn btn-success" %>
-            <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class:"btn btn-dark" %>
+            <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class:"btn btn-dark", data: { confirm: '削除しますか?' } %>
           </div>
         <% end %>
         <div class="card-body">
